@@ -1,0 +1,14 @@
+insert into `content` (href, span, style, images) values
+('#','Mail','icon','images/mail.png'),
+('#','Settings','icon','images/settings.png'),
+('#','Make a call','icon','images/phone.png'),
+('#','Photos','cover','images/gallery.jpg'),
+('#','Music','icon','images/music.png'),
+('#','Firefox','icon','images/firefox.png'),
+('#','Yahoo','icon','images/yahoo.png'),
+('#','GMail','big','images/gmail.png'),
+('#','Facebook','icon','images/facebook.png'),
+('#','Winamp','icon','images/winamp.png'),
+('#','Tasks','icon','images/tasks.png'),
+('#','DeviantART','big','images/deviantart.png'),
+('#','Dribbble','icon','images/dribbble.png');
