@@ -5,7 +5,7 @@
     pdo 支持
     sqlite3 支持
 ## 目录要求
-    cache 具有读写权限
+    cache目录具有读写权限
 
 ## 开源技术采用
     php
@@ -13,3 +13,5 @@
     jquery
     jquery.plugin
     phalcon
+## 预览网站
+    [phantom9999的网址导航](http://www.docshouse.cn)
