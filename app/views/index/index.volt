@@ -36,7 +36,7 @@
             <a class="box width2 height2" href="#"><span>Photos</span><img class="cover" src="/{{ sightData[j].images }}" /></a>
                     {% else %}
                         {# 大logo #}
-            <a class="box height2" href="/index/re/{{ item.token }}" style="background: {{ colorData[i].color }};"><span>{{ item.note }}</span><img class="icon big" src="/{{ item.images }}" /></a>
+            <a class="box height2" target='_blank' href="/index/re/{{ item.token }}" style="background: {{ colorData[i].color }};"><span>{{ item.note }}</span><img class="icon big" src="/{{ item.images }}" /></a>
                         {% continue %}
                     {% endif %}
                 {% endif %}
