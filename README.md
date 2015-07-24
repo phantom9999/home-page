@@ -14,4 +14,4 @@
     jquery.plugin
     phalcon
 ## 预览网站
-[phantom9999的网址导航](http://www.docshouse.cn)
+[phantom9999的网址导航](http://www.docshouse.cn){:target="_blank"}
