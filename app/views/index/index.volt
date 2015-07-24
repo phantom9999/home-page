@@ -2,9 +2,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="" />
-<meta name="description" content="" />
-<title>Win8风格Metro界面</title>
+<meta name="keywords" content="phantom9999,网址导航,IT,计算机" />
+<meta name="description" content="phantom9999的网址导航,个人常用网站导航,Win8风格Metro界面" />
+<title>phantom9999的网址导航</title>
 <link href="/css/metro.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
