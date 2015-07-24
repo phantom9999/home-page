@@ -35,8 +35,8 @@ img, object, embed { max-width: 100%; height: auto; }
 .metro-layout .box { float: left; position: relative; margin: 0.5em; padding: 0.5em; background: #555; width: 15em; height: 8em; text-decoration: none; cursor: pointer; overflow: hidden; color: #fff; background: #00a8ec; z-index: 9; }
 .metro-layout .box:hover { opacity: 0.85; filter: alpha(opacity=85); }
 .metro-layout .box span { position: absolute; left: 0.5em; bottom: 0.5em; font-size: 1em; font-weight: normal; z-index: 8; }
-.metro-layout .box img.icon { position: absolute; left: 50%; top: 50%; margin-left: -32px; margin-top: -32px; z-index: 7; }
-.metro-layout .box img.big { margin-left: -64px; margin-top: -64px; }
+.metro-layout .box img.icon { position: absolute; left: 50%; top: 50%; margin-left: -42px; margin-top: -32px; z-index: 7; }
+.metro-layout .box img.big { margin-left: -40px; margin-top: -64px; }
 .metro-layout .box img.cover { position: absolute; left: 0; top: 0; width: 100%; z-index: 6; }
 .metro-layout .width2 { width: 32em; }
 .metro-layout .width3 { width: 49em; }

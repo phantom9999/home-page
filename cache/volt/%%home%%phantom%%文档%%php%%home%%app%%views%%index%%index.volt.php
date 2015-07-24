@@ -23,27 +23,28 @@
 
 	<div class="content clearfix">
 		<div class="items">
-		    <?php foreach ($data as $item) { ?>
-		        <?php if ($item->type == 'image') { ?>
-		            <a class="box width2 height2" href="#"><span>Photos</span><img class="cover" src="/<?php echo $item->images; ?>" /></a>
-		        <?php } else { ?>
-		            <?php if ($item->type == 'big') { ?>
-		                <a class="box height2" href="/index/re/token=<?php echo $item->token; ?>" target="_blank" style="background: <?php echo $item->color; ?>;">
-                            <span><?php echo $item->note; ?></span>
-                            <img class="icon big" src="/<?php echo $item->images; ?>" />
-		                </a>
-		            <?php } else { ?>
-		                <?php if ($item->type == 'icon') { ?>
-		                    <a class="box" href="/index/re/<?php echo $item->token; ?>" target="_blank" style="background: <?php echo $item->color; ?>;">
-                                <span><?php echo $item->note; ?></span>
-                                <img class="icon" src="/<?php echo $item->images; ?>" />
-		                    </a>
-		                <?php } ?>
-		            <?php } ?>
-		        <?php } ?>
-		        
+            <?php $i = 0; ?>
+            <?php $j = 0; ?>
+		    <?php foreach ($websiteData as $item) { ?>
+                <?php $i = $i + 1; ?>
+                <?php if ($i % 4 == 0) { ?>
+                    
+                    <?php $j = $j + 1; ?>
+                    <?php if ($j % 2 == 1) { ?>
+                        
+                        <?php $i = $i + 1; ?>
+                        <a class="box width2 height2" href="#"><span>Photos</span><img class="cover" src="/<?php echo $sightData[$j]->images; ?>" /></a>
+                    <?php } else { ?>
+                        
+                        <a class="box height2" href="/index/re/<?php echo $item->token; ?>" style="background: <?php echo $colorData[$i]->color; ?>;"><span><?php echo $item->note; ?></span><img class="icon big" src="/<?php echo $item->images; ?>" /></a>
+                        <?php continue; ?>
+                    <?php } ?>
+                <?php } ?>
+                
+                <a class="box" href="/index/re/<?php echo $item->token; ?>" style="background: <?php echo $colorData[$i]->color; ?>;"><span><?php echo $item->note; ?></span><img class="icon" src="/<?php echo $item->images; ?>" /></a>
 		    <?php } ?>
 
+            <!--
 		    <a class="box" href="#"><span>Mail</span><img class="icon" src="images/mail.png" /></a>
             <a class="box" href="#" style="background: #6b6b6b;"><span>Settings</span><img class="icon" src="images/settings.png" /></a>
             <a class="box" href="#" style="background: #43b51f;"><span>Make a call</span><img class="icon" src="images/phone.png" /></a>

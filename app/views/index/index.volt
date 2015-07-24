@@ -23,50 +23,28 @@
 
 	<div class="content clearfix">
 		<div class="items">
-		    {% for item in data %}
-		        {% if item.type == 'image' %}
-		            <a class="box width2 height2" href="#"><span>Photos</span><img class="cover" src="/{{item.images}}" /></a>
-		        {% else %}
-		            {% if item.type == 'big' %}
-		                <a class="box height2" href="/index/re/token={{ item.token }}" target="_blank" style="background: {{ item.color }};">
-                            <span>{{ item.note }}</span>
-                            <img class="icon big" src="/{{ item.images }}" />
-		                </a>
-		            {% else %}
-		                {% if item.type == 'icon' %}
-		                    <a class="box" href="/index/re/{{ item.token }}" target="_blank" style="background: {{ item.color }};">
-                                <span>{{ item.note }}</span>
-                                <img class="icon" src="/{{ item.images }}" />
-		                    </a>
-		                {% endif %}
-		            {% endif %}
-		        {% endif %}
-		        {#
-		        <a class="box
-		        {% if item.style == 'cover' %}
-                    width2 height2
-                {% else %}
-                    {% if item.style == 'big' %}
-                        height2
+            {% set i = 0 %}
+            {% set j = 0 %}
+		    {% for item in websiteData %}
+                {% set i = i + 1 %}
+                {% if i % 4 == 0 %}
+                    {# 显示大图 #}
+                    {% set j = j + 1 %}
+                    {% if j % 2 == 1 %}
+                        {# 照片 #}
+                        {% set i = i + 1 %}
+                        <a class="box width2 height2" href="#"><span>Photos</span><img class="cover" src="/{{ sightData[j].images }}" /></a>
+                    {% else %}
+                        {# 大logo #}
+                        <a class="box height2" href="/index/re/{{ item.token }}" style="background: {{ colorData[i].color }};"><span>{{ item.note }}</span><img class="icon big" src="/{{ item.images }}" /></a>
+                        {% continue %}
                     {% endif %}
                 {% endif %}
+                {# 小logo #}
+                <a class="box" href="/index/re/{{ item.token }}" style="background: {{ colorData[i].color }};"><span>{{ item.note }}</span><img class="icon" src="/{{ item.images }}" /></a>
+		    {% endfor %}
 
-		        " href="{{ item.href }}">
-		            <span>{{ item.span }}</span>
-		            <img class="
-		            {% if item.style == 'cover' %}
-		                cover
-		            {% else %}
-		                {% if item.style == 'big' %}
-		                    icon big
-		                {% else %}
-		                    icon
-		                {% endif %}
-		            {% endif %}
-		            " src="{{ item.images }}" />
-		        </a> #}
-		    {% endfor%}
-
+            <!--
 		    <a class="box" href="#"><span>Mail</span><img class="icon" src="images/mail.png" /></a>
             <a class="box" href="#" style="background: #6b6b6b;"><span>Settings</span><img class="icon" src="images/settings.png" /></a>
             <a class="box" href="#" style="background: #43b51f;"><span>Make a call</span><img class="icon" src="images/phone.png" /></a>

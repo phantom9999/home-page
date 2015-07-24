@@ -12,6 +12,8 @@ insert into color (color) values
 ('#4c5e51'),
 ('#f874a4');
 
+select count(*) from color;
+
 -- 网站信息插入
 
 insert into website (note, href, token, images) values

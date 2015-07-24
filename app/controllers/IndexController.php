@@ -9,12 +9,15 @@ class IndexController extends ControllerBase
     public function indexAction()
     {
         $websiteData = Website::find();
-        $sightData = Sight::find();
-        $colorData = Color::find();
-        $length = count($websiteData);
-        #$this->view->websiteData = $websiteData;
-        #$this->view->sightData = $sightData;
-        #$this->view->colorData = $colorData;
+        $sightData = Sight::find(array(
+            'order' => 'RANDOM()'
+        ));
+        $colorData = Color::find(array(
+            'order' => 'RANDOM()'
+        ));
+        $this->view->websiteData = $websiteData;
+        $this->view->sightData = $sightData;
+        $this->view->colorData = $colorData;
     }
 
     public function reAction($token) {
