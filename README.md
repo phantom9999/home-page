@@ -6,3 +6,10 @@
     sqlite3 支持
 ## 目录要求
     cache 具有读写权限
+
+## 开源技术采用
+    php
+    sqlite3
+    jquery
+    jquery.plugin
+    phalcon
