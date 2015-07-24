@@ -63,3 +63,4 @@ insert into website (note, href, token, images) values
 ('xx小说','http://novel.docshouse.cn/', 'xx小说', 'images/default.png');
 
 
+insert into sight (images) values ('images/gallery.jpg');

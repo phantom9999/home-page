@@ -8,6 +8,24 @@ class IndexController extends ControllerBase
 
     public function indexAction()
     {
-        $this->view->data = Content::find();
+        $websiteData = Website::find();
+        $sightData = Sight::find();
+        $colorData = Color::find();
+        $length = count($websiteData);
+        #$this->view->websiteData = $websiteData;
+        #$this->view->sightData = $sightData;
+        #$this->view->colorData = $colorData;
+    }
+
+    public function reAction($token) {
+        $item = Website::findFirst(array("token='{$token}'"));
+        if ($item === null) {
+            echo 'null';
+            return;
+        }
+        print_r($item);
+        #$item->vote += 1;
+        #$item->save();
+        #$this->response->redirect($item->href, true);
     }
 }
