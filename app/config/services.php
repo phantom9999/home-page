@@ -11,35 +11,20 @@ use Phalcon\Flash\Session as FlashSession;
 use Phalcon\Events\Manager as EventsManager;
 
 /**
- * The FactoryDefault Dependency Injector automatically register the right services providing a full stack framework
+ * 生成容器
  */
 $di = new FactoryDefault();
 
 /**
- * We register the events manager
+ * 注册分发器
  */
 $di->set('dispatcher', function() use ($di) {
-
-	//$eventsManager = new EventsManager;
-
-	/**
-	 * Check if the user is allowed to access certain action using the SecurityPlugin
-	 */
-	//$eventsManager->attach('dispatch:beforeDispatch', new SecurityPlugin);
-
-	/**
-	 * Handle exceptions and not-found exceptions using NotFoundPlugin
-	 */
-	//$eventsManager->attach('dispatch:beforeException', new NotFoundPlugin);
-
 	$dispatcher = new Dispatcher;
-	//$dispatcher->setEventsManager($eventsManager);
-
 	return $dispatcher;
 });
 
 /**
- * The URL component is used to generate all kind of urls in the application
+ * 注册路由
  */
 $di->set('url', function() use ($config){
 	$url = new UrlProvider();
@@ -47,13 +32,13 @@ $di->set('url', function() use ($config){
 	return $url;
 });
 
-
+/**
+ * 注册视图组件
+ */
 $di->set('view', function() use ($config) {
 
 	$view = new View();
-
 	$view->setViewsDir(APP_PATH . $config->application->viewsDir);
-
 	$view->registerEngines(array(
 		".volt" => 'volt'
 	));
@@ -62,7 +47,7 @@ $di->set('view', function() use ($config) {
 });
 
 /**
- * Setting up volt
+ * 设置模板引擎
  */
 $di->set('volt', function($view, $di) {
 
@@ -79,7 +64,7 @@ $di->set('volt', function($view, $di) {
 }, true);
 
 /**
- * Database connection is created based in the parameters defined in the configuration file
+ * 注册数据库
  */
 
 $di->set('db', function() use ($config) {
@@ -91,37 +76,31 @@ $di->set('db', function() use ($config) {
 });
 
 /**
- * If the configuration specify the use of metadata adapter use it or use memory otherwise
- *//*
-$di->set('modelsMetadata', function() {
-	return new MetaData();
-});*/
+ * 注册数据库缓存
+ */
+
+$di->set('modelsCache', function(){
+    $frontCache = new Phalcon\Cache\Frontend\Data(array(
+        'lifetime' => 60 * 60 * 24
+    ));
+
+    $cache = new Phalcon\Cache\Backend\File($frontCache, array(
+        'cacheDir' => APP_PATH . "cache/database/"
+    ));
+    return $cache;
+});
 
 /**
- * Start the session the first time some component request the session service
+ * 注册页面缓存
  */
-/*
-$di->set('session', function() {
-	$session = new SessionAdapter();
-	$session->start();
-	return $session;
-});*/
 
-/**
- * Register the flash service with custom CSS classes
- */
-/*
-$di->set('flash', function(){
-	return new FlashSession(array(
-		'error'   => 'alert alert-danger',
-		'success' => 'alert alert-success',
-		'notice'  => 'alert alert-info',
-	));
-});*/
+$di->set('viewCache', function(){
+    $frontCache = new Phalcon\Cache\Frontend\Output(array(
+        'lifetime' => 60 * 60 * 24
+    ));
 
-/**
- * Register a user component
- */
-$di->set('elements', function(){
-	return new Elements();
+    $cache = new Phalcon\Cache\Backend\File($frontCache, array(
+        'cacheDir' => APP_PATH . 'cache/view/'
+    ));
+    return $cache;
 });

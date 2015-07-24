@@ -66,3 +66,6 @@ insert into website (note, href, token, images) values
 
 
 insert into sight (images) values ('images/gallery.jpg');
+
+
+update website set vote = abs(random()) % 100;
