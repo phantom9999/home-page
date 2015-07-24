@@ -1,3 +1,32 @@
+
+
+
+CREATE TABLE color
+(
+  id INTEGER PRIMARY KEY NOT NULL,
+  color VARCHAR(16) NOT NULL
+);
+CREATE TABLE sight
+(
+  id INTEGER PRIMARY KEY NOT NULL,
+  images VARCHAR(64) NOT NULL
+);
+
+CREATE TABLE website
+(
+  id INTEGER PRIMARY KEY NOT NULL,
+  href VARCHAR(64) NOT NULL,
+  token varchar(64) NOT NULL,
+  note VARCHAR(64) NOT NULL,
+  images VARCHAR(64) NOT NULL,
+  vote INT DEFAULT 0 NOT NULL
+);
+
+
+
+
+
+
 --插入颜色
 insert into color (color) values
 ('#6b6b6b'),
