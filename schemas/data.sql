@@ -65,7 +65,14 @@ insert into website (note, href, token, images) values
 ('xx小说','http://novel.docshouse.cn/', 'xx小说', 'images/default.png');
 
 
-insert into sight (images) values ('images/gallery.jpg');
+delete from sight;
+insert into sight (images) values
+  ('images/gallery.jpg'),
+  ('images/LagosPortugal.jpg'),
+  ('images/MoonDayMontage.jpg'),
+  ('images/SSGreatBritainBow.jpg'),
+  ('images/WhaleSounds.jpg')
+;
 
 
 update website set vote = abs(random()) % 100;
