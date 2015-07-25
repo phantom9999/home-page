@@ -81,8 +81,8 @@ $di->set('db', function() use ($config) {
 
 $di->set('modelsCache', function(){
     $frontCache = new Phalcon\Cache\Frontend\Data(array(
-        'lifetime' => 1
-        //'lifetime' => 60 * 60 * 24 * 0
+        //'lifetime' => 1
+        'lifetime' => 60 * 60 * 24 * 0
     ));
 
     $cache = new Phalcon\Cache\Backend\File($frontCache, array(
@@ -97,8 +97,8 @@ $di->set('modelsCache', function(){
 
 $di->set('viewCache', function(){
     $frontCache = new Phalcon\Cache\Frontend\Output(array(
-        'lifetime' => 2
-        //'lifetime' => 60 * 60 * 24 * 0
+        //'lifetime' => 2
+        'lifetime' => 60 * 60 * 24 * 0
     ));
 
     $cache = new Phalcon\Cache\Backend\File($frontCache, array(
