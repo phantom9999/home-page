@@ -81,7 +81,7 @@ $di->set('db', function() use ($config) {
 
 $di->set('modelsCache', function(){
     $frontCache = new Phalcon\Cache\Frontend\Data(array(
-        'lifetime' => 5
+        'lifetime' => 1
         //'lifetime' => 60 * 60 * 24 * 0
     ));
 
@@ -97,7 +97,7 @@ $di->set('modelsCache', function(){
 
 $di->set('viewCache', function(){
     $frontCache = new Phalcon\Cache\Frontend\Output(array(
-        'lifetime' => 10
+        'lifetime' => 2
         //'lifetime' => 60 * 60 * 24 * 0
     ));
 

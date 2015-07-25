@@ -104,4 +104,4 @@ insert into sight (images) values
 ;
 
 
-update website set vote = abs(random()) % 100;
+update website set vote = abs(random()) % 20;

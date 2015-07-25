@@ -9,7 +9,6 @@ class IndexController extends ControllerBase
     public function indexAction()
     {
 
-
         if (!$this->view->getCache()->exists('index')) {
             $websiteData = Website::find(array(
                 'order' => 'vote desc',
@@ -50,7 +49,7 @@ class IndexController extends ControllerBase
         ))->getFirst();
 
         if ($item) {
-            $item->vote += 1;
+            $item->vote += rand(1, 10);
             $item->save();
             $this->response->redirect($item->href, true);
         } else {
