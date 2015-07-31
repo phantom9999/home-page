@@ -100,8 +100,8 @@ insert into sight (images) values
   ('images/LagosPortugal.jpg'),
   ('images/MoonDayMontage.jpg'),
   ('images/SSGreatBritainBow.jpg'),
-  ('images/WhaleSounds.jpg')
-;
+  ('images/WhaleSounds.jpg');
 
 
 update website set vote = abs(random()) % 20;
+

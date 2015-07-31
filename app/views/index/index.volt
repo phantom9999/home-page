@@ -33,7 +33,7 @@
                     {% if j % 2 == 1 %}
                         {# 照片 #}
                         {% set i = i + 1 %}
-            <a class="box width2 height2" href="#"><span>Photos</span><img class="cover" src="/{{ sightData[j].images }}" /></a>
+            {# <a class="box width2 height2" href="#"><span>Photos</span><img class="cover" src="/{{ sightData[j].images }}" /></a> #}
                     {% else %}
                         {# 大logo #}
             <a class="box height2" target='_blank' href="/index/re/{{ item.token }}" style="background: {{ colorData[i].color }};"><span>{{ item.note }}</span><img class="icon big" src="/{{ item.images }}" /></a>

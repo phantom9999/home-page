@@ -82,11 +82,18 @@ $di->set('db', function() use ($config) {
 $di->set('modelsCache', function(){
     $frontCache = new Phalcon\Cache\Frontend\Data(array(
         //'lifetime' => 1
-        'lifetime' => 60 * 60 * 24 * 0
+        'lifetime' => 3600
     ));
 
-    $cache = new Phalcon\Cache\Backend\File($frontCache, array(
-        'cacheDir' => APP_PATH . "cache/database/"
+    $cache = new Phalcon\Cache\Backend\Memcache($frontCache, array(
+        //'cacheDir' => APP_PATH . "cache/database/"
+        "servers" => array(
+            array(
+                "host" => "127.0.0.1",
+                "port" => "11211",
+                "weight" => "1"
+            )
+        )
     ));
     return $cache;
 });
@@ -98,11 +105,18 @@ $di->set('modelsCache', function(){
 $di->set('viewCache', function(){
     $frontCache = new Phalcon\Cache\Frontend\Output(array(
         //'lifetime' => 2
-        'lifetime' => 60 * 60 * 24 * 0
+        'lifetime' => 7200
     ));
 
-    $cache = new Phalcon\Cache\Backend\File($frontCache, array(
-        'cacheDir' => APP_PATH . 'cache/view/'
+    $cache = new Phalcon\Cache\Backend\Memcache($frontCache, array(
+        //'cacheDir' => APP_PATH . 'cache/view/'
+        "servers" => array(
+            array(
+                "host" => "127.0.0.1",
+                "port" => "11211",
+                "weight" => "1"
+            )
+        )
     ));
     return $cache;
 });

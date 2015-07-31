@@ -14,21 +14,21 @@ class IndexController extends ControllerBase
                 'order' => 'vote desc',
                 'cache' => array(
                     'key' => 'website',
-                    'lifetime' => 60 * 60 * 24
+                    'lifetime' => 3600
                 )
             ));
             $sightData = Sight::find(array(
                 'order' => 'RANDOM()',
                 'cache' => array(
                     'key' => 'sight',
-                    'lifetime' => 60 * 60 * 12
+                    'lifetime' => 3600
                 )
             ));
             $colorData = Color::find(array(
                 'order' => 'RANDOM()',
                 'cache' => array(
                     'key' => 'color',
-                    'lifetime' => 60 * 60 * 12
+                    'lifetime' => 3600
                 )
             ));
             $this->view->websiteData = $websiteData;
@@ -38,7 +38,7 @@ class IndexController extends ControllerBase
 
         $this->view->cache(array(
             'key' => 'index',
-            'lifetime' => 60 * 60 * 12
+            'lifetime' => 7200
         ));
 
     }
@@ -49,6 +49,7 @@ class IndexController extends ControllerBase
             'bind' => array(1=>$token),
             'cache' => array(
                 'key' => $token,
+                'lifetime' => 7200 * 24
             )
         ))->getFirst();
 
