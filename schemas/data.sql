@@ -93,6 +93,12 @@ insert into website (note, href, token, images) values
 ('xx博客','http://blog.docshouse.cn/', 'xx博客', 'images/default.png'),
 ('xx小说','http://novel.docshouse.cn/', 'xx小说', 'images/default.png');
 
+insert into website (note, href, token, images) values
+  ('open-open','http://www.open-open.com/', 'open-open', 'images/default.png'),
+  ('programmableweb','http://www.programmableweb.com/', 'programmableweb', 'images/default.png');
+
+update website set vote=random() where note in ('open-open', 'programmableweb');
+
 
 delete from sight;
 insert into sight (images) values
